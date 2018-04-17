@@ -1,0 +1,12 @@
+{
+    "name": "flickerleap/peach-payments",
+    "description": "PHP library to allow Peach Payment integration",
+    "authors": [
+        {
+            "name": "Flicker Leap",
+            "email": "info@flickerleap.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
