@@ -59,7 +59,7 @@ $capturePayment = new \FlickerLeap\PeachPayments\Payments\Capture($client, $amou
 $response = $capturePayment->process();
 ```
 
-Get Paymeny status.
+Get Payment status.
 
 ```php
 $paymentStatus = new \FlickerLeap\PeachPayments\Payments\Status($client, $checkoutId);
