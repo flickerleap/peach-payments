@@ -9,6 +9,7 @@ namespace FlickerLeap\PeachPayments;
 class Configuration
 {
 	const EXCEPTION_ARGUMENT_EMPTY = 400;
+    
     /**
      * User id.
      *
@@ -43,7 +44,7 @@ class Configuration
         $this->userId = $userId;
         $this->password = $password;
         $this->entityId = $entityId;
-        
+
         // check if anything is null or empty
         if (empty($userId) || empty($password) || empty($entityId)) {
            throw new \Exception("Argument missing in configuration", self::EXCEPTION_ARGUMENT_EMPTY);
