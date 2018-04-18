@@ -36,3 +36,18 @@ If you wish to use the test server.
 ```php
 $client->setTestMode(true);
 ```
+
+All responses will contain an isSuccess method to check if the result was successful
+
+```php
+if ($response->isSuccess()) {
+ // was successful
+}
+```
+
+Get Checkout ID for Storing a card.
+
+```php
+$storeCard = new \FlickerLeap\PeachPayments\Cards\Store($client);
+$response = $storeCard->process();
+```
