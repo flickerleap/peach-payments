@@ -6,25 +6,25 @@ Package to allow integration with Peach Payments using PHP
 There are three ways to configure the client.
 
 ```php
-$config = new \Peach\Oppwa\Configuration(
+$config = new \FlickerLeap\PeachPayments\Configuration(
     'set_your_user_id',
     'set_your_password',
     'set_your_entity_id'
 );
 
-$client = new \Peach\Oppwa\Client($config);
+$client = new \FlickerLeap\PeachPayments\Client($config);
 
 ```
 
 ```php
-$client = new \Peach\Oppwa\Client([
+$client = new \FlickerLeap\PeachPayments\Client([
     'set_your_user_id',
     'set_your_password',
     'set_your_entity_id']
 );
 ```
 ```php
-$client = new \Peach\Oppwa\Client(
+$client = new \FlickerLeap\PeachPayments\Client(
     'set_your_user_id',
     'set_your_password',
     'set_your_entity_id'
