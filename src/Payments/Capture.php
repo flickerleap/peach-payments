@@ -8,7 +8,7 @@ use FlickerLeap\PeachPayments\ClientInterface;
 use FlickerLeap\PeachPayments\ResponseJson;
 
 /**
- * Class Store
+ * Class Capture
  * @package FlickerLeap\PeachPayments\Payments
  */
 class Capture implements ClientInterface
