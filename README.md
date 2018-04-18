@@ -3,7 +3,7 @@ Package to allow integration with Peach Payments using PHP
 
 ### Examples:
 
-There is three ways to configure the client.
+There are three ways to configure the client.
 
 ```php
 $config = new \Peach\Oppwa\Configuration(
@@ -34,5 +34,5 @@ $client = new \Peach\Oppwa\Client(
 If you wish to use the test server.
 
 ```php
-    $client->setTestMode(true);
+$client->setTestMode(true);
 ```
