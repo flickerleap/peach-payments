@@ -51,3 +51,17 @@ Get Checkout ID for Storing a card.
 $storeCard = new \FlickerLeap\PeachPayments\Cards\Store($client);
 $response = $storeCard->process();
 ```
+
+Get Checkout ID for payment.
+
+```php
+$capturePayment = new \FlickerLeap\PeachPayments\Payments\Capture($client, $amount);
+$response = $capturePayment->process();
+```
+
+Get Paymeny status.
+
+```php
+$paymentStatus = new \FlickerLeap\PeachPayments\Payments\Status($client, $checkoutId);
+$response = $paymentStatus->process();
+```
