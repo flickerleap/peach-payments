@@ -48,7 +48,7 @@ if ($response->isSuccess()) {
 Get Checkout ID for Storing a card.
 
 ```php
-$storeCard = new \FlickerLeap\PeachPayments\Cards\Store($client);
+$storeCard = new \FlickerLeap\PeachPayments\Cards\Store($client, $shopperResultUrl, $notificationUrl);
 $response = $storeCard->process();
 ```
 

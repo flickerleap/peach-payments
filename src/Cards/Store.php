@@ -21,12 +21,28 @@ class Store implements ClientInterface
     private $client;
 
     /**
+     * FlickerLeap\PeachPayments shopperResultUrl.
+     *
+     * @var ShopperResultUrl
+     */
+    private $shopperResultUrl;
+
+    /**
+     * FlickerLeap\PeachPayments notificationUrl.
+     *
+     * @var NotificationUrl
+     */
+    private $notificationUrl;
+
+    /**
      * Store constructor.
      * @param Client $client
      */
-    public function __construct(Client $client)
+    public function __construct(Client $client, $shopperResultUrl, $notificationUrl)
     {
         $this->client = $client;
+        $this->shopperResultUrl = $shopperResultUrl;
+        $this->notificationUrl = $notificationUrl;
     }
 
     /**
@@ -68,8 +84,8 @@ class Store implements ClientInterface
             'amount' => 0.00,
             'currency' => 'ZAR',
             'createRegistration' => true,
-            'shopperResultUrl' => 'my.app://custom/url',
-            'notificationUrl' => 'http://www.example.com/notify'
+            'shopperResultUrl' => $this->shopperResultUrl,
+            'notificationUrl' => $this->notificationUrl
         ];
     }
 }
