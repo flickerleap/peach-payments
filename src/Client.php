@@ -140,4 +140,17 @@ class client
         }
         return self::API_URI_LIVE . self::API_URI_VERSION;
     }
+
+    /**
+     * Get notify uri.
+     *
+     * @return string
+     */
+    public function getNotifyUri()
+    {
+        if ($this->isTestMode()) {
+            return self::API_URI_TEST;
+        }
+        return self::API_URI_LIVE;
+    }
 }

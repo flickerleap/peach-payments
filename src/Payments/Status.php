@@ -35,10 +35,9 @@ class Status implements ClientInterface
     public function __construct(Client $client, $checkoutId = null)
     {
         $this->client = $client;
-
-        if (!empty($checkoutId)) {
-            $this->checkoutId = $checkoutId;
-        }
+        $this->checkoutId = $checkoutId;
+        $this->shopperResultUrl = $shopperResultUrl;
+        $this->notificationUrl = $notificationUrl;
     }
 
     /**
