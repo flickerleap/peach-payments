@@ -48,15 +48,15 @@ if ($response->isSuccess()) {
 Get Checkout ID for Storing a card.
 
 ```php
-$storeCard = new \FlickerLeap\PeachPayments\Cards\Store($client);
+$storeCard = new \FlickerLeap\PeachPayments\Cards\Store($client, $shopperResultUrl, $notificationUrl);
 $response = $storeCard->process();
 ```
 
 Get Checkout ID for payment.
 
 ```php
-$capturePayment = new \FlickerLeap\PeachPayments\Payments\Capture($client, $amount);
-$response = $capturePayment->process();
+$debitPayment = new \FlickerLeap\PeachPayments\Payments\Debit($client, $amount);
+$response = $debitPayment->process();
 ```
 
 Get Payment status.
