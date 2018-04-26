@@ -1,6 +1,6 @@
 <?php
 
-namespace FlickerLeap\PeachPayments\Checkouts;
+namespace FlickerLeap\PeachPayments\Checkout;
 
 use GuzzleHttp\Exception\RequestException;
 use FlickerLeap\PeachPayments\Client;
@@ -9,7 +9,7 @@ use FlickerLeap\PeachPayments\ResponseJson;
 
 /**
  * Class Status
- * @package FlickerLeap\PeachPayments\Checkouts
+ * @package FlickerLeap\PeachPayments\Checkout
  */
 class Status implements ClientInterface
 {
