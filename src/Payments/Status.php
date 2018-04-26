@@ -36,8 +36,6 @@ class Status implements ClientInterface
     {
         $this->client = $client;
         $this->checkoutId = $checkoutId;
-        $this->shopperResultUrl = $shopperResultUrl;
-        $this->notificationUrl = $notificationUrl;
     }
 
     /**
