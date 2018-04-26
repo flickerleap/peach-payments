@@ -1,6 +1,6 @@
 <?php
 
-namespace FlickerLeap\PeachPayments\Payments;
+namespace FlickerLeap\PeachPayments\Registration;
 
 use GuzzleHttp\Exception\RequestException;
 use FlickerLeap\PeachPayments\Client;
@@ -9,9 +9,9 @@ use FlickerLeap\PeachPayments\ResponseJson;
 
 /**
  * Class Debit
- * @package FlickerLeap\PeachPayments\Payments
+ * @package FlickerLeap\PeachPayments\Registration
  */
-class Debit implements ClientInterface
+class Payment implements ClientInterface
 {
 	/**
      * FlickerLeap\PeachPayments client object.
@@ -19,20 +19,6 @@ class Debit implements ClientInterface
      * @var Client
      */
     private $client;
-
-    /**
-     * FlickerLeap\PeachPayments shopperResultUrl.
-     *
-     * @var ShopperResultUrl
-     */
-    private $shopperResultUrl;
-
-    /**
-     * FlickerLeap\PeachPayments notificationUrl.
-     *
-     * @var NotificationUrl
-     */
-    private $notificationUrl;
 
     /**
      * @var amount
@@ -50,21 +36,20 @@ class Debit implements ClientInterface
     private $paymentType = 'DB';
 
     /**
-     * @var createRegistration
+     * @var transactionId
      */
-    private $createRegistration = false;
+    private $transactionId;
 
     /**
      * Debit constructor.
      * @param Client $client
      * @param float $amount
      */
-    public function __construct(Client $client, $amount, $shopperResultUrl, $notificationUrl)
+    public function __construct(Client $client, $amount, $transactionId)
     {
         $this->client = $client;
         $this->amount = $amount;
-        $this->shopperResultUrl = $shopperResultUrl;
-        $this->notificationUrl = $notificationUrl;
+        $this->transactionId = $transactionId;
     }
 
     /**
@@ -91,7 +76,7 @@ class Debit implements ClientInterface
      */
     public function buildUrl()
     {
-        return $this->client->getApiUri() . '/checkouts';
+        return $this->client->getApiUri() . '/registrations';
     }
 
     /**
@@ -106,14 +91,8 @@ class Debit implements ClientInterface
             'amount' => $this->getAmount(),
             'currency' => $this->getCurrency(),
             'paymentType' => $this->getPaymentType(),
-            'shopperResultUrl' => $this->shopperResultUrl,
-            'notificationUrl' => $this->notificationUrl
+            'merchantTransactionId' => $this->getTransactionId()
         ];
-
-        // save card
-        if ($this->isCreateRegistration()) {
-            $params['createRegistration'] = true;
-        }
 
         return $params;
     }
@@ -125,6 +104,7 @@ class Debit implements ClientInterface
     {
         return $this->paymentType;
     }
+
     /**
      * @param string $paymentType
      * @return $this
@@ -143,6 +123,7 @@ class Debit implements ClientInterface
     {
         return strtoupper($this->currency);
     }
+
     /**
      * @param string $currency
      * @return $this
@@ -153,6 +134,7 @@ class Debit implements ClientInterface
 
         return $this;
     }
+
     /**
      * @return float
      */
@@ -161,6 +143,7 @@ class Debit implements ClientInterface
         // oppwa format
         return number_format($this->amount, 2, '.', '');
     }
+
     /**
      * @param float $amount
      * @return $this
@@ -171,20 +154,12 @@ class Debit implements ClientInterface
 
         return $this;
     }
+
     /**
-     * @return boolean
+     * @return string
      */
-    public function isCreateRegistration()
+    public function getTransactionId()
     {
-        return $this->createRegistration;
-    }
-    /**
-     * @param boolean $createRegistration
-     * @return $this
-     */
-    public function setCreateRegistration($createRegistration)
-    {
-        $this->createRegistration = $createRegistration;
-        return $this;
+        return $this->transactionId;
     }
 }
