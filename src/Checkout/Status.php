@@ -73,7 +73,7 @@ class Status implements ClientInterface
         '?authentication.userId=' . $this->client->getConfig()->getUserId() .
         '&authentication.password=' . $this->client->getConfig()->getPassword() .
         '&authentication.entityId=' . $this->client->getConfig()->getEntityId() .
-        'shopperResultUrl' => $this->shopperResultUrl;
+        '&shopperResultUrl=' . $this->shopperResultUrl;
     }
 
     /**
