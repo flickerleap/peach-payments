@@ -69,7 +69,7 @@ class Payment implements ClientInterface
      * @param Client $client
      * @param float $amount
      */
-    public function __construct(Client $client, $amount, $notificationUrl, $shopperTokens, $transactionId)
+    public function __construct(Client $client, $amount, $shopperResultUrl, $notificationUrl, $shopperTokens, $transactionId)
     {
         $this->client = $client;
         $this->amount = $amount;
