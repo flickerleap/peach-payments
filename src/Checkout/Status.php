@@ -23,6 +23,13 @@ class Status implements ClientInterface
     private $client;
 
     /**
+     * FlickerLeap\PeachPayments shopperResultUrl.
+     *
+     * @var ShopperResultUrl
+     */
+    private $shopperResultUrl;
+
+    /**
      * @var null|string
      */
     private $checkoutId = '';
@@ -32,9 +39,10 @@ class Status implements ClientInterface
      * @param Client $client
      * @param null $checkoutId
      */
-    public function __construct(Client $client, $checkoutId = null)
+    public function __construct(Client $client, $shopperResultUrl, $checkoutId = null)
     {
         $this->client = $client;
+        $this->shopperResultUrl = $shopperResultUrl;
         $this->checkoutId = $checkoutId;
     }
 
@@ -64,7 +72,8 @@ class Status implements ClientInterface
         return $this->client->getApiUri() . '/checkouts/' . $this->getCheckoutId() . '/payment' . 
         '?authentication.userId=' . $this->client->getConfig()->getUserId() .
         '&authentication.password=' . $this->client->getConfig()->getPassword() .
-        '&authentication.entityId=' . $this->client->getConfig()->getEntityId();
+        '&authentication.entityId=' . $this->client->getConfig()->getEntityId(),
+        'shopperResultUrl' => $this->shopperResultUrl;
     }
 
     /**
