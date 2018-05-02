@@ -66,7 +66,6 @@ class Payment implements ClientInterface
     {
         $this->client = $client;
         $this->amount = $amount;
-        $this->shopperResultUrl = $shopperResultUrl;
         $this->notificationUrl = $notificationUrl;
         $this->shopperTokens = $shopperTokens;
         $this->transactionId = $transactionId;
