@@ -21,6 +21,20 @@ class Payment implements ClientInterface
     private $client;
 
     /**
+     * FlickerLeap\PeachPayments shopperResultUrl.
+     *
+     * @var ShopperResultUrl
+     */
+    private $shopperResultUrl;
+
+    /**
+     * FlickerLeap\PeachPayments notificationUrl.
+     *
+     * @var NotificationUrl
+     */
+    private $notificationUrl;
+
+    /**
      * @var amount
      */
     private $amount;
@@ -45,10 +59,12 @@ class Payment implements ClientInterface
      * @param Client $client
      * @param float $amount
      */
-    public function __construct(Client $client, $amount, $transactionId)
+    public function __construct(Client $client, $amount, $shopperResultUrl, $notificationUrl, $transactionId)
     {
         $this->client = $client;
         $this->amount = $amount;
+        $this->shopperResultUrl = $shopperResultUrl;
+        $this->notificationUrl = $notificationUrl;
         $this->transactionId = $transactionId;
     }
 
@@ -91,6 +107,8 @@ class Payment implements ClientInterface
             'amount' => $this->getAmount(),
             'currency' => $this->getCurrency(),
             'paymentType' => $this->getPaymentType(),
+            'shopperResultUrl' => $this->shopperResultUrl,
+            'notificationUrl' => $this->notificationUrl,
             'merchantTransactionId' => $this->getTransactionId()
         ];
 
