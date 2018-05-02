@@ -109,7 +109,8 @@ class Payment implements ClientInterface
             'paymentType' => $this->getPaymentType(),
             'shopperResultUrl' => $this->shopperResultUrl,
             'notificationUrl' => $this->notificationUrl,
-            'merchantTransactionId' => $this->getTransactionId()
+            'merchantTransactionId' => $this->getTransactionId(),
+            'createRegistration' => true
         ];
 
         return $params;
