@@ -72,7 +72,7 @@ class Status implements ClientInterface
         return $this->client->getApiUri() . '/checkouts/' . $this->getCheckoutId() . '/payment' . 
         '?authentication.userId=' . $this->client->getConfig()->getUserId() .
         '&authentication.password=' . $this->client->getConfig()->getPassword() .
-        '&authentication.entityId=' . $this->client->getConfig()->getEntityId(),
+        '&authentication.entityId=' . $this->client->getConfig()->getEntityId() .
         'shopperResultUrl' => $this->shopperResultUrl;
     }
 
