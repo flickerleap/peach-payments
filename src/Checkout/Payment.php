@@ -112,7 +112,6 @@ class Payment implements ClientInterface
             'paymentType' => $this->getPaymentType(),
             'notificationUrl' => $this->notificationUrl,
             'merchantTransactionId' => $this->getTransactionId(),
-            'token' => $this->getShopperTokens(), // array of stored shopper tokens
             'recurringType' => 'REGISTRATION_BASED', // Used to skip 3D secure
         ];
 
@@ -122,6 +121,10 @@ class Payment implements ClientInterface
         }
 
         foreach ($this->shopperTokens as $key => $value) {
+            var_dump($this->shopperTokens);
+            var_dump($key);
+            var_dump($value);
+            exit();
             $params['registrations[' . $key . '].id'] = $value;
         }
 
@@ -184,14 +187,6 @@ class Payment implements ClientInterface
         $this->amount = $amount;
 
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getShopperTokens()
-    {
-        return $this->shopperTokens;
     }
 
     /**
