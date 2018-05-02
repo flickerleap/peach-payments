@@ -122,7 +122,7 @@ class Payment implements ClientInterface
         }
 
         foreach ($this->shopperTokens as $key => $value) {
-            $params['registrations[' . $key . '].id'] => $value;
+            $params['registrations[' . $key . '].id'] = $value;
         }
 
         return $params;
