@@ -26,6 +26,13 @@ class Payment implements ClientInterface
      * @var NotificationUrl
      */
     private $notificationUrl;
+	
+    /**
+     * FlickerLeap\PeachPayments shopperResultUrl.
+     *
+     * @var ShopperResultUrl
+     */
+    private $shopperResultUrl;
 
     /**
      * @var amount
@@ -67,6 +74,7 @@ class Payment implements ClientInterface
         $this->client = $client;
         $this->amount = $amount;
         $this->notificationUrl = $notificationUrl;
+        $this->shopperResultUrl = $shopperResultUrl;
         $this->shopperTokens = $shopperTokens;
         $this->transactionId = $transactionId;
     }
@@ -111,6 +119,7 @@ class Payment implements ClientInterface
             'currency' => $this->getCurrency(),
             'paymentType' => $this->getPaymentType(),
             'notificationUrl' => $this->notificationUrl,
+            'shopperResultUrl' => $this->shopperResultUrl,
             'merchantTransactionId' => $this->getTransactionId(),
             'recurringType' => 'REGISTRATION_BASED', // Used to skip 3D secure
         ];
