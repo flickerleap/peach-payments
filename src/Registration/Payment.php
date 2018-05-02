@@ -92,7 +92,7 @@ class Payment implements ClientInterface
      */
     public function buildUrl()
     {
-        return $this->client->getApiUri() . '/registrations';
+        return $this->client->getApiUri() . '/checkouts';
     }
 
     /**
