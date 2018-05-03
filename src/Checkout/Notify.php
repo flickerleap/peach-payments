@@ -1,12 +1,16 @@
 <?php
 
-namespace FlickerLeap\PeachPayments\Cards;
+namespace FlickerLeap\PeachPayments\Checkout;
 
 use GuzzleHttp\Exception\RequestException;
 use FlickerLeap\PeachPayments\Client;
 use FlickerLeap\PeachPayments\ClientInterface;
 use FlickerLeap\PeachPayments\ResponseJson;
 
+/**
+ * Class Notify
+ * @package FlickerLeap\PeachPayments\Checkout
+ */
 class Notify implements ClientInterface
 {
 	// api location and version
